@@ -1,0 +1,49 @@
+#yinyang {
+  border: 3px solid red;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #ffffff 50%,
+    #000000 50%,
+    #000000 100%
+  );
+  position: relative;
+  margin: 200px auto;
+  animation-duration: 3s; /*  动画速率  */
+  animation-name: run; /*  动画名称  */
+  animation-iteration-count: infinite; /*  动画此数：无限  */
+  animation-timing-function: linear; /*  动画关键帧：线性变化  */
+}
+@keyframes run {
+  /*  css3的animation 参考MDN:https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations  */
+  0% {
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#yinyang::before {
+  content: ""; /*  伪类content至少要赋予空值  */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 50px;
+  position: absolute;
+  border: 40px solid #000000; /*  border*2和width/height总和为100px  */
+  background: #ffffff;
+  left: 0;
+}
+#yinyang::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 50px;
+  position: absolute;
+  border: 40px solid #ffffff;
+  background: #000000;
+  right: 0;
+}
